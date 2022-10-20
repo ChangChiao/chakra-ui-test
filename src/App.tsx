@@ -1,34 +1,47 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
-
+import { useState } from "react";
+import {
+  Box,
+  Image,
+  Tabs,
+  TabList,
+  Tab,
+  TabPanel,
+  TabPanels,
+} from "@chakra-ui/react";
+import "./App.css";
+import SignUp from "./components/SignUp";
+import SignIn from "./components/SignIn";
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
     <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Image
+        w="250px"
+        mx="auto"
+        mt="2"
+        mb="6"
+        src={"https://fakeimg.pl/350x200/333333/fff"}
+      />
+      {/* <Box w={256} h="2xl" bg="red.200"></Box> */}
+      <Tabs isFitted>
+        <TabList>
+          <Tab _focus={{ boxShadow: "none" }}>注册(form)</Tab>
+          <Tab _focus={{ boxShadow: "none" }}>登录(form)</Tab>
+          <Tab _focus={{ boxShadow: "none" }}>Card</Tab>
+          <Tab _focus={{ boxShadow: "none" }}>登录</Tab>
+        </TabList>
+        <TabPanels>
+          <TabPanel>
+            <SignUp />
+          </TabPanel>
+          <TabPanel>
+            <SignIn />
+          </TabPanel>
+        </TabPanels>
+      </Tabs>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
