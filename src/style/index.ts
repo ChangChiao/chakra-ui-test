@@ -1,8 +1,8 @@
-import { extendTheme, withDefaultColorScheme } from '@chakra-ui/react';
+import { extendTheme, withDefaultColorScheme } from "@chakra-ui/react";
 
-import Button from './components/button';
-import colors from './colors';
-import global from './global';
+import Button from "./components/button";
+import colors from "./colors";
+import global from "./global";
 
 const theme = extendTheme(
   {
@@ -12,11 +12,17 @@ const theme = extendTheme(
       Button,
     },
     config: {
-      initialColorMode: 'dark',
+      initialColorMode: "dark",
       useSystemColorMode: false,
     },
+    breakpoints: {
+      sm: "320px",
+      md: "768px",
+      lg: "960px",
+      xl: "1200px",
+    },
   },
-  withDefaultColorScheme({ colorScheme: 'primary' }),
+  withDefaultColorScheme({ colorScheme: "primary" })
 );
 
 export default theme;

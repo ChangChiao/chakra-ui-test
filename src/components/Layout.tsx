@@ -1,0 +1,24 @@
+import { Box, Drawer, DrawerContent, useDisclosure } from "@chakra-ui/react";
+import Header from './Header';
+export default function Layout({ children }: { children: JSX.Element }) {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  return (
+    <Box minH="100vh" bg="gray.100">
+      <Drawer
+        autoFocus={false}
+        isOpen={isOpen}
+        placement="left"
+        onClose={onClose}
+        returnFocusOnClose={false}
+        onOverlayClick={onClose}
+        size="full"
+      >
+        <DrawerContent></DrawerContent>
+      </Drawer>
+      <Header onOpen={onOpen} />
+      <Box ml={{ base: 0, md: 60 }} p="4">
+        {children}
+      </Box>
+    </Box>
+  );
+}
